@@ -106,8 +106,8 @@ function generateDataSets(state, filteredData) {
       `(${((element.noOfLessons * 100) / totalLessons).toFixed(2)}%)`,
     ],
     data: element.schoolData.map((item) => item.lessons),
-    // ...generateRandomColors(),
-    ...obj,
+    ...generateRandomColors(),
+    // ...obj,
   }));
 
   state.chartData = {
