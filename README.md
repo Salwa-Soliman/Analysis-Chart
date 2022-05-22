@@ -7,7 +7,9 @@ I followed the following steps for getting the task to work as expected:
  - Show All schools is the default ( no extra filteration needed, just show all elements that exist in both country and camp)
  - Whenever selected country or camp changes, Schools are filtered again to match specified values
  - If a specific school is already selected && selected country/camp changed =>
+ 
                     ~ if the school exists in the new filtered data, it won't change
+ 
                     ~ else, selected school will be back to default (Show All)
 
 I had a problem drawing chart data because each school records only the months they provided lessons in. So, I decided to fill the unspecified months with lessons = 0 & id= null;
