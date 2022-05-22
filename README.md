@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+I followed the following steps for getting the task to work as expected:
+ - Fetching data directly from GitHub raw
+ - Saving fetchedData in Redux Store
+ - Getting unique values of camps, countries and schools (Removing duplicates)
+ - First country and camp are selected by default
+ - Filtering schools based on selected country and camp
+ - Show All schools is the default ( no extra filteration needed, just show all elements that exist in both country and camp)
+ - Whenever selected country or camp changes, Schools are filtered again to match specified values
+ - If a specific school is already selected && selected country/camp changed =>
+                    ~ if the school exists in the new filtered data, it won't change
+                    ~ else, selected school will be back to default (Show All)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I had a problem drawing chart data because each school records only the months they provided lessons in. So, I decided to fill the unspecified months with lessons = 0 & id= null;
 
-## Available Scripts
+When any of the created months are clicked, I render a modal showing that there was no data specified for this point.
 
-In the project directory, you can run:
+If any other point is clicked, you should be redirected to Details Page ( id is sent as a route param so that we can get point details whenever Details Page is rendered)
 
-### `npm start`
+In Details Screen, You can find a table containing everything about the clicked point.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When you're back from details screen, the previously selected country, camp and school will remain the same because they're stored in redux store.
