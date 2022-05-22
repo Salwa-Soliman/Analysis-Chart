@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./pages/HomePage";
+import Details from "./pages/Details";
+import DarkModeToggler from "./components/DarkModeToggler";
+import { useSelector } from "react-redux";
 
 function App() {
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const className = isDarkMode ? "dark" : "";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`py-4 ${className}`}>     
+      <Routes>
+        <Route path="/" element={<HomePage />} exact />
+        <Route path="/details/:id" element={<Details />} />
+      </Routes>
+      <DarkModeToggler />
     </div>
   );
 }

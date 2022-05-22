@@ -1,0 +1,23 @@
+select {
+  background-color: var(--light);
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  /* outline: none; */
+}
+label {
+  color: var(--purple);
+  margin-right: 5px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+option {
+  color: var(--text-color);
+}
